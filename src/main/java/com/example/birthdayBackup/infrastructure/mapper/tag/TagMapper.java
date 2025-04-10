@@ -16,3 +16,4 @@ public interface TagMapper {
      */
     void insert(Tag tag);
 }
+

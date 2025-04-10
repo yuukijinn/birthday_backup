@@ -4,7 +4,6 @@ import com.example.birthdayBackup.app.beanMapper.TagCreateFormToDomainMapper;
 import com.example.birthdayBackup.app.form.TagCreateForm;
 import com.example.birthdayBackup.domain.model.Tag;
 import com.example.birthdayBackup.usecase.tag.TagUsecase;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,13 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
  * タグコントローラー
  */
 @RestController
-@AllArgsConstructor
 @RequestMapping("/tags")
 public class TagController {
 
     //依存クラス
     private final TagCreateFormToDomainMapper tagCreateFormToDomainMapper;
     private final TagUsecase tagUsecase;
+
+    public TagController(
+            TagCreateFormToDomainMapper tagCreateFormToDomainMapper,
+            TagUsecase tagUsecase
+    ) {
+        this.tagCreateFormToDomainMapper = tagCreateFormToDomainMapper;
+        this.tagUsecase = tagUsecase;
+    }
 
     /**
      * タグ作成処理
