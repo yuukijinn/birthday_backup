@@ -6,12 +6,12 @@
     <!-- タグを登録 -->
     <insert id="insert" parameterType="com.example.birthdayBackup.domain.model.Tag">
         INSERT INTO
-            tags(
-                name,
+            tag(
+                tag_name,
                 created_at
             )
         VALUES(
-            #{name},
+            #{tagName},
             NOW()
             )
     </insert>
